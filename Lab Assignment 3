@@ -114,6 +114,5 @@ def LexicalChecker(tocheck):
 
 tocheck=input("Enter Input: ")
 
-print("")
-LexicalChecker(tocheck)
+
    
