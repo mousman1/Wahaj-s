@@ -1,0 +1,119 @@
+import re
+
+
+def DataType(tocheck):
+    rgx=r"int|double|float|String|boolean|char"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is DataType*"
+    else:
+        res="NOT a DataType."
+    return res
+
+
+def identifier(tocheck):
+    rgx=r"^[a-zA-Z_]+(_)[a-zA-Z0-9]$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is Identifier*"
+    else:
+        res="NOT a Identifier."
+    return res
+
+
+def Statement(tocheck):
+    rgx=r"^(int|float|string)\s+[a-zA-Z]+[0-9]\s(=|==|!=|<=|>=|<|>)\s*[a-zA-Z0-9]+;$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is Statement*"
+    else:
+        res="NOT a Statement."
+    return res
+
+def Digit(tocheck):
+    rgx=r"^[0-9]+$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is Digit*"
+    else:
+        res="NOT a Digit."
+    return res
+
+
+
+def Operator(tocheck):
+    rgx=r"(&&|\|\|)"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is Operator*"
+    else:
+        res="NOT a Operator."
+    return res
+
+
+
+def ForLoop(tocheck):
+    rgx=r"^for\s*\(\s*int\s*[a-zA-Z]+\s*=[0-9]+;\s*[a-zA-Z]+(<=|>=|<|>)[0-9]+;\s*[a-zA-Z++--]+\)$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is For Loop*"
+    else:
+        res="NOT a For Loop."
+    return res
+
+def ForEachLoop(tocheck):
+    rgx=r"^for\s*\((int|char|string)\s*[a-zA-Z]+\s*(:)\s*[a-zA-Z]+\)$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is Foreach Loop*"
+    else:
+        res="NOT a Foreach Loop."
+    return res
+
+def WhileLoop(tocheck):
+    rgx=r"^while\s*\([a-zA-Z]+(<=|>=|==|<|>|!=)\s[a-zA-Z0-9]\)\{\s\}$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is While Loop*"
+    else:
+        res="NOT a While Loop."
+    return res
+
+def DoWhileLoop(tocheck):
+    rgx=r"^do\{\s*\}\s*while\s*\([a-zA-Z]+(<=|>=|==|<|>|!=)\s[a-zA-Z0-9]*\)$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is Do While Loop*"
+    else:
+        res="NOT a Do While Loop."
+    return res
+
+def IfStatement(tocheck):
+    rgx=r"^if\s*\([a-zA-Z]+(==|=|<=|>=|<|>)[a-zA-Z0-9]\s*(&&|\|\|)\s[a-zA-Z](==|=|<=|>=|<|>)[a-zA-Z0-9]\s\)*$"
+    ans=re.match(rgx, tocheck)
+    if(ans):
+        res="*It is If Statement*"
+    else:
+        res="NOT a If Statement."
+    return res
+
+def LexicalChecker(tocheck):
+    print(DataType(tocheck))
+    print(identifier(tocheck))
+    print(Digit(tocheck))
+    print(Operator(tocheck))
+    print(ForLoop(tocheck))
+    print(ForEachLoop(tocheck))
+    print(WhileLoop(tocheck))
+    print(DoWhileLoop(tocheck))
+    print(IfStatement(tocheck))
+    print(Statement(tocheck))
+    
+        
+
+
+tocheck=input("Enter Input: ")
+
+print("")
+LexicalChecker(tocheck)
+   
